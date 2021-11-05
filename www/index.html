@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Revisao</title>
+    <style>
+      body{
+        background-color: snow;
+      }
+      .botao{
+        height: 4vh;
+        width: 18vw;
+        background-color: blue;
+        color: white;
+        cursor: pointer;
+      }
+      .botao:hover{
+        background-color: red;
+      }
+      .visor{
+        margin-top: 1vh;
+        height: 4vh;
+        width: 40vw;
+        background-color: lightgrey;
+      }
+      .botao2{
+        height: 8vh;
+        width: 18vw;
+        background-color: blue;
+        color: white;
+        cursor: pointer;
+      }
+      .botao2:hover{
+        background-color: red;
+      }
+      .moldura{
+        width: 200px;
+        height: 200px;
+        border: solid 4px;
+        background-image: url (Educacao.jpg);
+      }
+      #img{
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+	</head>
+	<body>
+      <form>
+        <h1>Revisão</h1>
+        <!--Calculo de Velocidade-->
+        <h3>Calculo de Velocidade</h3>
+        <p>Digite o espaço:</p>
+        <input type="text" name="espaco" id="espaco">
+        <p>Digite o tempo:</p>
+        <input type="text" name="tempo" id="tempo"><br><br>
+        <div class="botao" onclick="calcular()">Calcular</div><br>
+        <div class="visor" id="visor">Resultado:</div>
+        <br><br>
+        <!--Calculo de Aceleração-->
+        <h3>Calculo de aceleração</h3>
+        <p>Digite a velocidade</p>
+        <input type="text" name="velocidade2" id="velocidade2"><br>
+        <p>Digite o tempo</p>
+        <input type="text" name="tempo2" id="tempo2"><br><br>
+        <div class="botao" onclick="calcular2()">Calcular</div><br>
+        <div class="visor" id="visor2">Resultado:</div>
+        <br><br>
+        <!--Calculo de Torricelli-->
+        <h3>Calculo de Torricelli</h3>
+        <p>Digite a Velocidade Inicial:</p>
+        <input type="text" id="vi">
+        <p>Digite a Aceleração</p>
+        <input type="text" id="aceleracao2">
+        <p>Digite o Espaço</p>
+        <input type="text" id="espaco2"><br><br>
+        <div class="botao" onclick="calcular3()">Calcular</div><br>
+        <div class="visor" id="visor3">Resultado:</div>
+        <!--Pitagoras-->
+        <h3>Pitagoras</h3>
+        <p>Digite os catetos e saiba a hipotenusa:</p>
+        <p>cateto1:</p>
+        <input type="text" id="cateto1">
+        <p>cateto2:</p>
+        <input type="text" id="cateto2"><br><br>
+        <div class="botao" onclick="calcular4()">Calcular</div><br>
+        <div class="visor" id="visor4">Resultado:</div>
+        <!--Imagens-->
+        <h3>Imagens</h3>
+        <div class="botao" onclick="trocar()">Foto1</div>
+        <br>
+        <div class="botao" onclick="trocar2()">Foto2</div>
+        <br>
+        <div class="moldura">
+          <img id="img">
+        </div>
+      </form>
+    <script>
+      //Trocar Foto
+      function trocar(){
+        document.getElementById('img').src = "Educacao.jpg";
+      }
+      function trocar2(){
+        document.getElementById('img').src = "CriseFinanceira.jpg";
+      }
+      //calculo de velocidade
+      var espaco;
+      var tempo;
+      var velocidade;
+      
+      function calcular(){
+        espaco = parseInt(document.getElementById('espaco').value);
+        tempo = parseInt(document.getElementById('tempo').value);
+        velocidade = espaco / tempo;
+        document.getElementById('visor').innerHTML = velocidade;
+      }
+
+      //calculo de aceleração
+      var velocidade2;
+      var tempo2;
+      var aceleracao;
+
+      function calcular2(){
+        velocidade2 = parseInt(document.getElementById('velocidade2').value);
+        tempo2 = parseInt(document.getElementById('tempo2').value);
+        aceleracao = velocidade2 / tempo2;
+        document.getElementById('visor2').innerHTML = aceleracao;
+      }
+
+      //calculo de Torricelli
+      var vi;
+      var aceleracao2;
+      var espaco2;
+      var result;
+      var result2;
+
+      function calcular3(){
+        vi = parseInt(document.getElementById('vi').value);
+        aceleracao2 = parseInt(document.getElementById('aceleracao2').value);
+        espaco2 = parseInt(document.getElementById('espaco2').value);
+        result2 = (vi * vi) + (2 * aceleracao2) * espaco2;
+        result = Math.sqrt(result2);
+        document.getElementById('visor3').innerHTML = result;
+      }
+
+      //Pitagoras
+      var cateto1;
+      var cateto2;
+      var hipotenusa;
+      var hipotenusa2;
+
+      function calcular4(){
+        cateto1 = parseInt(document.getElementById('cateto1').value);
+        cateto2 = parseInt(document.getElementById('cateto2').value);
+        hipotenusa2 = (cateto1 * cateto1) + (cateto2 * cateto2);
+        hipotenusa = Math.sqrt(hipotenusa2);
+        document.getElementById('visor4').innerHTML = hipotenusa;
+      }
+    </script>
+	</body>
+</html>
